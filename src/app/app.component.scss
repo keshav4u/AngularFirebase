@@ -1,0 +1,23 @@
+:host {
+  .mat-card {
+
+    &.signup,
+    &.signin {
+      max-width: 40%;
+      margin: 2em;
+
+      .mat-form-field {
+        margin-right: 1em;
+      }
+
+      .mat-card-actions {
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
+  .googleIcon {
+    width: 30px;
+  }
+}

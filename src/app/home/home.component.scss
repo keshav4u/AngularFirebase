@@ -1,0 +1,33 @@
+.userTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1em;
+
+  span {
+    font-size: 20px;
+  }
+}
+
+.cars {
+  display: flex;
+  flex-wrap: wrap;
+
+  .car {
+    width: 28.8%;
+    margin: 1em;
+
+    .actions {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      position: absolute;
+      right: 8px;
+      top: 8px;
+
+      button:last-child {
+        margin-left: 1em;
+      }
+    }
+  }
+}
