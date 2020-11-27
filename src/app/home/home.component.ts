@@ -3,7 +3,6 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { LocalStorageService } from '../services/local-storage.service';
 
 @Component({
   selector: 'app-home',
@@ -17,8 +16,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private auth: AuthService,
-    public firebaseAuth: AngularFireAuth,
-    private local: LocalStorageService
+    public firebaseAuth: AngularFireAuth
   ) {
     this.carsCollection = this.firestore.collection('cars');
     this.cars$ = this.firestore.collection('cars').valueChanges({

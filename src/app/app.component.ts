@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AuthService } from './services/auth.service';
-import { LocalStorageService } from './services/local-storage.service';
-import firebase from 'firebase/app';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -15,7 +13,6 @@ export class AppComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private local: LocalStorageService,
     public firebaseAuth: AngularFireAuth,
     private router: Router) { }
   ngOnInit() {
@@ -35,22 +32,18 @@ export class AppComponent implements OnInit {
 
   signUp(name: string, email: string, password: string) {
     this.auth.signup(email, password);
-    if (this.auth.isLoggedIn) {
-      this.firebaseAuth.onAuthStateChanged(user => {
-        if (user) {
-          user.updateProfile({
-            displayName: name
-          }).then(res => {
-            const localUser = this.local.getUser();
-            localUser.displayName = name;
-            this.local.addUser(localUser);
-            this.router.navigateByUrl('/home');
-          }).catch(err => {
-            console.log(err);
-          });
-        }
+    this.firebaseAuth.onAuthStateChanged(user => {
+      if (user) {
+        user.updateProfile({
+          displayName: name
+        }).then(res => {
+          this.router.navigateByUrl('/home');
+        }).catch(err => {
+          console.log(err);
+        });
+      }
 
-      });
-    }
+    });
+
   }
 }
