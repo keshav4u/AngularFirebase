@@ -23,19 +23,23 @@ export class HomeComponent implements OnInit {
       idField: 'customID'
     });
   }
+
   ngOnInit(): void {
     this.firebaseAuth.user.subscribe(res => {
       this.user = res;
     });
   }
+
   logout() {
     this.auth.logout();
   }
+
   deleteCar(car) {
     const customID = car.customID;
     delete car.customID;
     this.carsCollection.doc(customID).delete();
   }
+
   updateCar(car) {
     const customID = car.customID;
     delete car.customID;
