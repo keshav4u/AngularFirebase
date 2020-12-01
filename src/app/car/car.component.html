@@ -1,0 +1,49 @@
+<mat-card class="car">
+    <div class="actions">
+      <button mat-mini-fab color="primary" (click)="car.edit=true" *ngIf="!car.edit">
+        <mat-icon>create</mat-icon>
+      </button>
+      <button mat-mini-fab color="basic" (click)="updateCar.emit(car)" *ngIf="car.edit">
+        <mat-icon>done</mat-icon>
+      </button>
+      <button mat-mini-fab color="warn" (click)="deleteCar.emit(car)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </div>
+    <div class="content">
+      <strong>Car name: </strong>
+      <span *ngIf="!car.edit">
+        {{car.Car_name}}
+      </span>
+      <input type="text" *ngIf="car.edit" [(ngModel)]="car.Car_name">
+    </div>
+    <div class="content">
+      <strong>Max speed: </strong>
+      <span *ngIf="!car.edit">
+        {{car.Max_speed}}
+      </span>
+      <input type="text" *ngIf="car.edit" [(ngModel)]="car.Max_speed">
+    </div>
+    <div class="content">
+      <strong>Make: </strong>
+      <span *ngIf="!car.edit">
+        {{car.Make}}
+      </span>
+      <input type="text" *ngIf="car.edit" [(ngModel)]="car.Make">
+    </div>
+    <div class="content">
+      <strong>Engine size: </strong>
+      <span *ngIf="!car.edit">
+        {{car.Engine_size}}
+      </span>
+      <input type="text" *ngIf="car.edit" [(ngModel)]="car.Engine_size">
+    </div>
+    <div class="content">
+      <strong>Created date: </strong>
+      <span *ngIf="!car.edit">
+        {{car.Created_date.seconds | date}}
+      </span>
+      <input type="text" *ngIf="car.edit" [(ngModel)]="car.Created_date">
+    </div>
+
+  </mat-card>
