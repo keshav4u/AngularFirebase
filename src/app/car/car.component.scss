@@ -1,26 +1,26 @@
 :host {
   width: 31%;
   min-width: 308px;
-  margin-bottom: 1em;
+  flex-grow: 1;
+  margin: 1em;
+}
 
-  .car {
+.car {
 
-    .actions {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      position: absolute;
-      right: 8px;
-      top: 8px;
+  .actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    position: absolute;
+    right: 8px;
+    top: 8px;
 
-      button:last-child {
-        margin-left: 1em;
-      }
-    }
-
-    .content {
-      margin-bottom: .5em;
+    button:last-child {
+      margin-left: 1em;
     }
   }
 
+  .content {
+    margin-bottom: .5em;
+  }
 }
