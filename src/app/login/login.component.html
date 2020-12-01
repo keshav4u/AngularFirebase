@@ -1,0 +1,51 @@
+<div >
+  <mat-card class="signin">
+    <mat-card-header>
+      <mat-card-title>Sign In</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email" #emailSignin>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" #passwordSignin>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="signIn(emailSignin.value,passwordSignin.value)">Sign
+        In</button>
+      <button mat-raised-button color="basic" (click)="signInWithGoogle()">
+        <img class="googleIcon" src="/assets/btn_google_light_normal_ios.svg" alt=""> Login with Google</button>
+    </mat-card-actions>
+
+  </mat-card>
+  <mat-card class="signup">
+    <mat-card-header>
+      <mat-card-title>Sign Up</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field>
+          <mat-label>Full name</mat-label>
+          <input matInput type="text " #nameSignup>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Email</mat-label>
+          <input matInput type="email " #emailSignup>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput type="password" #passwordSignup>
+        </mat-form-field>
+      </form>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary"
+        (click)="signUp(nameSignup.value,emailSignup.value,passwordSignup.value)">Sign Up</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

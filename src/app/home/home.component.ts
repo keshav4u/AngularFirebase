@@ -16,30 +16,27 @@ export class HomeComponent implements OnInit {
   constructor(
     private firestore: AngularFirestore,
     private auth: AuthService,
-    public firebaseAuth: AngularFireAuth
+    public firebaseAuth: AngularFireAuth,
+
   ) {
     this.carsCollection = this.firestore.collection('cars');
     this.cars$ = this.firestore.collection('cars').valueChanges({
       idField: 'customID'
     });
   }
-
   ngOnInit(): void {
     this.firebaseAuth.user.subscribe(res => {
       this.user = res;
     });
   }
-
   logout() {
     this.auth.logout();
   }
-
   deleteCar(car) {
     const customID = car.customID;
     delete car.customID;
     this.carsCollection.doc(customID).delete();
   }
-
   updateCar(car) {
     const customID = car.customID;
     delete car.customID;
